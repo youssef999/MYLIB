@@ -1,0 +1,46 @@
+  
+
+//direct update
+
+  final CollectionReference _updates =
+              FirebaseFirestore.instance.collection('school');
+              await _updates
+                  .where('x', isEqualTo: 'x')
+                  .get().then((snapshot) {
+                snapshot.docs.last.reference.update({
+                  'code': controller.text,
+                }).then((value) {
+                  var box = GetStorage();
+                  box.write('code', 'code');
+                  Get.offAll(SchoolAdmin());
+                });
+              });
+...................................................................................................................
+
+var collection = FirebaseFirestore.instance.collection('user');
+            print("ccc======="+collection.toString());
+            var docSnapshot = await collection.doc(value.user!.uid).get();
+        print("ccc======="+docSnapshot.toString());
+
+
+  if (docSnapshot.exists) {
+
+            Map<String, dynamic>? data = docSnapshot.data();
+            var valuex = data?['log'];
+            print("vvv=========="+valuex.toString());
+            final CollectionReference _updates =
+            FirebaseFirestore.instance.collection('user');
+
+
+
+ await _updates
+                  .where('email',isEqualTo:email)
+                  .get().then((snapshot) {
+                snapshot.docs.last.reference.update({
+                  'log':valuex+1,
+                  //'price':price,
+                }).then((value) {
+
+                  Get.offAll(ControleView());
+                });
+              });//

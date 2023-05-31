@@ -1,0 +1,26 @@
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await initialServices();
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Get.put(LocalStorgeData());
+    MyLocalController controller = Get.put(MyLocalController());
+    Get.lazyPut(() => HomeViewModel());
+    Get.lazyPut(() => AuthViewModel());
+
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    return  GetMaterialApp(
+          locale: controller.language,
+          translations: MyLocal(),
+          initialBinding: Binding(),
+          debugShowCheckedModeBanner: false,
+          home: SplashScreen()
+    );
+  }
+}

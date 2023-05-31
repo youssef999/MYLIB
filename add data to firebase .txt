@@ -1,0 +1,35 @@
+Add Data to Firebase:
+
+
+  await FirebaseFirestore.instance
+                                      .collection('pay')
+                                      .add({
+                                    "course": course,
+                                    "studentname": nameController.text,
+                                    "doctorname": doctorname,
+                                    "studentemail": email,
+                                    "total": price,
+                                    "walletnumber": numController.text,
+                                    "courex": coursex.toString(),
+                                    "image": image.toString()
+                                  }).then((value) {
+                                    Get.snackbar("Done", "sent".tr,
+                                        colorText: Colors.white,
+                                        snackPosition: SnackPosition.BOTTOM,
+                                        backgroundColor: Colors.black,
+                                        duration: Duration(seconds: 3),
+                                        borderRadius: 10,
+                                        margin: EdgeInsets.all(10),
+                                        borderColor: Colors.black,
+                                        borderWidth: 2,
+                                        icon: Icon(Icons.add_task,
+                                            color: Colors.white));
+                                    Get.off(BottomBar());
+                                  });
+
+
+
+
+
+
+

@@ -1,0 +1,116 @@
+buildHomeMainPopup(context) {
+    CarouselController carouselController = CarouselController();
+    BuildContext dialogContext;
+        return
+          showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder: (context) {
+                dialogContext = context;
+                return Dialog(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(17)),
+                  elevation: 23,
+                  child: Container(
+                    height:420,//main_pop_height,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                            bottomLeft: Radius.circular(20),
+                            bottomRight: Radius.circular(20)
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 17,
+                            offset: const Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      height: 390,
+                      width: 380.0,
+                      child:
+                      CarouselSlider.builder(
+                        carouselController: carouselController,
+                        itemCount:3,
+                        itemBuilder: (context, index1, index2) => Container(
+                          width: MediaQuery.of(context).size.width * 0.92,
+                          padding: const EdgeInsets.all(2),
+                          margin: const EdgeInsets.only(bottom: 8),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Center(
+                                  child: Row(
+                                    children: [
+                                      const SizedBox(
+                                        width:90,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top:8.0),
+                                        child: Center(
+                                          child: Text(
+                                        LocaleKeys.ptitle.tr(),
+                                            style: const TextStyle(fontSize: 18,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w700),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(height:10,),
+                                SizedBox(
+                                  height:270,
+                                  width:290,
+                                  child:
+                                 Image.asset('assets/icon4.png',
+                                 fit:BoxFit.fill,
+                                 )
+                                ),
+                                const SizedBox(height:12,),
+                                 Center(
+                                  child: Text(
+                                    LocaleKeys.pdes.tr(),
+                                    style: const TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                                  RaisedButton(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(12)),
+                                      color:Colors.red[700],
+                                      child: Text( LocaleKeys.ok.tr(),
+                                          style:const TextStyle(color:Colors.white,fontSize:22)),
+                                      onPressed:(){
+                                        Navigator.pop(dialogContext);
+                                      })
+                              ],
+                            ),
+                          ),
+                        ),
+                        options: CarouselOptions(
+                          autoPlay: false,
+                          autoPlayCurve: Curves.decelerate,
+                          autoPlayAnimationDuration: const Duration(seconds: 1),
+                          viewportFraction: 1.0,
+                          enlargeStrategy: CenterPageEnlargeStrategy.height,
+                          enlargeCenterPage: true,
+                          height: 420.0,
+                        ),
+                      ),
+                    ),
+                  ),
+
+
+                );
+              });
+
+      }

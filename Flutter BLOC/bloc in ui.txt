@@ -1,0 +1,36 @@
+ 
+// instance of bloc :CounterCubit.get(context).counter.toString(),
+
+  AppCubit appCubit=AppCubit.get(context);
+
+
+
+ BlocProvider(
+      create:(BuildContext context)=>CounterCubit(),
+      
+      child: BlocConsumer<CounterCubit,CounterStates>(
+        listener:(context,state){
+          if(state is CounterIntialState){
+            print("intial state");
+          }
+          if(state is CounterPlusState){
+            print("plus state");
+          }
+          if(state is CounterMinusState){
+            print("Min state");
+          }
+
+        },
+          builder:(context,state){
+            return
+
+.........................................................................................................................
+
+الاقواس من بعد scaffold
+
+  }
+
+      )
+    );
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "hello": "hello222",
+  "RBCs": "red",
+  "PLEASEENTERTitle": "PLEASE ENTER Title",
+  "title": "Title",
+  "time": "Time",
+  "entertime": "Enter the time ",
+  "date": "Date",
+  "enterDate": "Enter Date",
+  "tasks": "Tasks",
+  "done": "Done Tasks",
+  "archived": "Archived",
+  "notask": "No Task yet ,add some tasks",
+  "changeLang": "change Language",
+  "ptitle": "Todo List",
+  "pdes": "Welcome to our app , enjoy adding new tasks",
+  "ok": "ok"
+
+
+}

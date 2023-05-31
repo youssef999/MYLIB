@@ -1,0 +1,5 @@
+ConditionalBuilder(
+        condition: state is !GetDataBaseLoadingState,
+        builder: (context) =>  appCubit.screens[ appCubit.currentIndex],
+        fallback: (context) => const Center(child: CircularProgressIndicator()),
+      ),

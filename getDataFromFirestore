@@ -1,0 +1,12 @@
+  getDataFromFireStore(DocumentSnapshot posts)async{
+    
+    
+
+    getCurrentUser();
+    
+    await for (var snapshot in fireStore.collection('pay').where('user',isEqualTo:posts['user']).snapshots()) {
+      for (var pay in snapshot.docs) {
+        print(pay.data());
+      }
+      
+    }}

@@ -1,0 +1,51 @@
+
+
+1 - services
+
+2- model
+
+this class is step 3 
+
+.....................................................................................................................
+
+class HomeViewModel extends GetxController {
+
+  
+  ValueNotifier<bool> get loading => _loading;
+  ValueNotifier<bool> _loading = ValueNotifier(false);
+
+  List<CategoriesModel> get categoriesModel => _categoriesModel;
+  List<CategoriesModel> _categoriesModel = [];
+  List<BestCourseModel> get bestCourseModel => _bestCourseModel;
+  List<BestCourseModel> _bestCourseModel = [];
+
+  HomeViewModel() {
+    getCategory();
+    getBestSilling();
+  }
+
+  getCategory() async {
+    _loading.value = true;
+    HomeServes().getCategory().then((value) {
+      for (int i = 0; i < value.length; i++) {
+        _categoriesModel.add(
+            CategoriesModel.fromJson(value[i].data() as Map<String, dynamic>));
+        _loading.value = false;
+      }
+      update();
+    });
+  }
+
+  getBestSilling() async {
+    _loading.value = true;
+    HomeServes().getBestCourse().then((value) {
+      for (int i = 0; i < value.length; i++) {
+        _bestCourseModel.add(
+            BestCourseModel.fromJson(value[i].data() as Map<String, dynamic>));
+        _loading.value = false;
+      }
+      print(_bestCourseModel.length);
+      update();
+    });
+  }
+}

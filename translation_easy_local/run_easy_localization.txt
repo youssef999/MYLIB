@@ -1,0 +1,5 @@
+flutter pub run easy_localization:generate -S "assets/tr/" -O "lib/tr2"
+
+..............
+
+ LocaleKeys.ptitle.tr(),

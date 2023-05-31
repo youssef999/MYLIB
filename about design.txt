@@ -1,0 +1,124 @@
+..........................................................................
+
+ Flushbar(
+                              flushbarPosition: FlushbarPosition.TOP,
+                              message: "كلمة المرور غير متطابقة",
+                              icon: Icon(Icons.error,
+                                  size: 28.0, color: ColorManager.darkPrimary),
+                              duration: const Duration(seconds: 3),
+                              leftBarIndicatorColor: Colors.cyan,
+                              backgroundColor: ColorManager.darkPrimary,
+                            ).show(context);
+................................................................................................
+
+  var formKey = GlobalKey<FormState>();
+
+
+
+..................................................................................................................
+Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const SecondRoute()),
+  );
+
+......................
+ Navigator.of(context).pushAndRemoveUntil(
+                                        MaterialPageRoute(
+                                            builder: (context) => HomePage()),
+                                        (Route<dynamic> route) => false);
+
+.....................................
+Corner raduis
+
+ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+)
+
+
+
+.......................................................
+1-          decoration: BoxDecoration(
+                 boxShadow: [
+                   BoxShadow(
+                     color: Colors.grey.withOpacity(0.4),
+                     spreadRadius: 5,
+                     blurRadius: 7,
+                     offset: Offset(0, 3), // changes position of shadow
+                   ),
+                 ],
+               borderRadius: BorderRadius.circular(15),
+                 gradient: LinearGradient(
+                   colors: [
+                     ColorManager.primary,
+                     ColorManager.primary,
+                   ],
+                   begin: FractionalOffset(0.0, 0.4),
+                   end: Alignment.topRight,
+                 )),
+...........................................................................................................
+
+
+2- RaisedButton(
+                              color: Color.fromARGB(255, 116, 27, 27),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)))
+
+...........................................................................................................
+
+3 -   appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.grey,
+          toolbarHeight: 1,
+        ),
+
+.......................................................................................................
+
+4-   TextFormField(
+                          validator: (value) {
+                            if (value.toString() == '' || value == null) {
+                              return LocaleKeys.enterdate.tr();
+                            }
+                          },
+                          controller: dateController,
+                          keyboardType: TextInputType.datetime,
+                          decoration: InputDecoration(
+                            hintText: LocaleKeys.date.tr(),
+                            hintStyle: TextStyle(color: Colors.grey),
+                            fillColor: Colors.white,
+                            suffixIcon: IconButton(
+                              icon: Icon(Icons.date_range_rounded),
+                              onPressed: () {
+                                showDatePicker
+                                  (context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime.now(),
+                                    lastDate: DateTime.parse('3-5-2033'))
+                                    .then((value) {
+                                  dateController.text =
+                                      DateFormat.yMMMd().format(value!);
+                                });
+                              },
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.transparent),
+                              borderRadius: BorderRadius.circular(5.5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.transparent),
+                              borderRadius: BorderRadius.circular(5.5),
+
+                            ),
+                            filled: true,
+                          ),
+                          onTap: () {
+                            showDatePicker
+                              (context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime.now(),
+                                lastDate: DateTime.parse('2030-05-03'))
+                                .then((value) {
+                              dateController.text =
+                                  DateFormat.yMMMd().format(value!);
+                            });
+                          },
+                        ),

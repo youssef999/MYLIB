@@ -1,0 +1,12 @@
+
+1 -class extends extends GetWidget<AuthViewModel>  // in ui screen class
+
+ 2-  GetX<MaterialViewModel>(
+      init: MaterialViewModel(),
+      builder: (value) =>
+
+
+  3-      final box = GetStorage();
+box.write("email,email);
+String name=box.read('name')??"";
+String email=box.read('email')??"";

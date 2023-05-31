@@ -1,0 +1,133 @@
+
+
+
+
+import 'package:flutter/material.dart';
+
+
+class MainDrawer extends StatefulWidget {
+  const MainDrawer({Key ? key}) : super(key: key);
+
+  @override
+  _MainDrawerState createState() => _MainDrawerState();
+}
+
+class _MainDrawerState extends State<MainDrawer> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+
+              ListTile(
+                  leading:
+                  Container(
+                      width: 90,
+                      height: 90,
+                      child: Image.asset("assets/contact.png",)),
+                  title: Text("contact",
+                    style: TextStyle(color: Colors.black, fontSize: 17),),
+                  onTap: () {
+
+                  }
+              ),
+              SizedBox(
+                height: 10,
+              ),
+
+              ListTile(
+
+                  leading: Container(
+                      height: 90,
+                      width: 90,
+                      child: Image.asset("assets/about.png")),
+                  title: Text("about",
+                    style: TextStyle(color: Colors.black, fontSize: 17),),
+                  onTap: () {
+
+                  }
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              ListTile(
+
+                  leading: Container(
+                      height: 90,
+                      width: 90,
+                      child: Image.asset("assets/terms.png",)),
+                  title: Text("terms",
+                    style: TextStyle(color: Colors.black, fontSize: 17),),
+                  onTap: () {
+
+                  }
+              ),
+              Divider(height: 24),
+
+              ListTile(
+                onTap: () {
+
+                },
+
+                leading: Container(
+                    height: 90,
+                    width: 90,
+                    child: Image.asset("assets/privacy.png",)),
+                title: Text("privacy",
+                  style: TextStyle(color: Colors.black, fontSize: 17),),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              ListTile(
+                  leading: Container(
+                      height: 90,
+                      width: 90,
+                      child: Image.asset("assets/lang.png")),
+                  title: Text("language",
+                    style: TextStyle(color: Colors.black, fontSize: 17),),
+                  onTap: () {
+
+                  }),
+
+              Divider(height: 24),
+
+              ListTile(
+                onTap: () {
+
+                },
+
+                leading: Container(
+                    width: 90,
+                    height: 90,
+                    child: Image.asset("assets/pr.png",)),
+                title: Text("myprofile",
+                  style: TextStyle(color: Colors.black, fontSize: 17),),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              ListTile(
+
+                  leading: Container(
+                      width: 90,
+                      height: 90,
+                      child: Image.asset("assets/logout.png",)),
+                  title: Text("logout",
+                    style: TextStyle(color: Colors.black, fontSize: 17),),
+                  onTap: () {
+
+                  }
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+}
+
